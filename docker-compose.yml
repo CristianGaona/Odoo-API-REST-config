@@ -1,0 +1,23 @@
+version: '2'
+services: 
+  web:
+    image: odoo:13.0
+    depends_on: 
+      - mydb
+    ports:
+      - "8069:8069"
+    restart: always
+    environment: 
+      - HOST=mydb
+      - USER=odoo
+      - PASSWORD=odoopw
+
+  mydb:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoopw
+      - POSTGRES_USER=odoo
