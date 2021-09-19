@@ -6,7 +6,6 @@ services:
       - mydb
     ports:
       - "8069:8069"
-    restart: always
     environment: 
       - HOST=mydb
       - USER=odoo
@@ -16,7 +15,6 @@ services:
     image: postgres:12-alpine
     ports:
       - "5432:5432"
-    restart: always
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoopw
